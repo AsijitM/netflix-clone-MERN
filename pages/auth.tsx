@@ -50,7 +50,7 @@ const Auth = () => {
     <div className="relative h-full w-full bg-[url('/images/hero.jpg')] bg-no-repeat bg-center bg-cover">
       <div className="w-full h-full bg-black lg:bg-opacity-50 ">
         <nav className="px-12 py-5">
-           {/* eslint-disable-next-line @next/next/no-img-element */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/images/logo.png" alt="logo" className="h-12" />
         </nav>
         <div className="flex justify-center">
@@ -89,7 +89,10 @@ const Auth = () => {
               {variant == 'login' ? 'Login' : 'Sign Up'}
             </button>
             <div className="flex flex-row items-center justify-center gap-4 mt-8 ">
-              <div className="flex items-center justify-center w-10 h-10 transition bg-white rounded-full cursor-pointer hover:opacity-80">
+              <div
+                className="flex items-center justify-center w-10 h-10 transition bg-white rounded-full cursor-pointer hover:opacity-80"
+                onClick={() => signIn('google', { callbackUrl: '/' })}
+              >
                 <FcGoogle size={30} />
               </div>
               <div

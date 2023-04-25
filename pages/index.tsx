@@ -7,6 +7,8 @@ import BillBoard from '@/components/BillBoard';
 import MovieList from '@/components/MovieList';
 import useMovieList from '@/hooks/useMovieList';
 import useFavorites from '@/hooks/useFavorites';
+import InfoModal from '@/components/infoModal';
+import useInfoModalStore from '@/hooks/useInfoModel';
 const inter = Inter({ subsets: ['latin'] });
 
 export async function getServerSideProps(context: NextPageContext) {
@@ -29,6 +31,7 @@ export default function Home() {
   const { data: user } = useCurrentUser();
   const { data: movies = [] } = useMovieList();
   const { data: favorites = [] } = useFavorites();
+  const { isOpen, closeModal } = useInfoModalStore();
 
   return (
     <main>
@@ -37,6 +40,7 @@ export default function Home() {
       <button onClick={() => signOut()} className="w-full h-10 bg-white">
         Logout
       </button> */}
+      <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <BillBoard />
       <div className="pb-40">

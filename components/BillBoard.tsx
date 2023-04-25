@@ -10,8 +10,8 @@ const BillBoard = () => {
 
   const handleOpenModal = useCallback(() => {
     openModal(data?.id);
-  }, []);
-  
+  }, [openModal, data?.id]);
+
   return (
     <div className="relative h-[56.25vw] ">
       <video
